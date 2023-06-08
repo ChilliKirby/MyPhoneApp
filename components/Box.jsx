@@ -1,18 +1,27 @@
 import { PropTypes } from "prop-types";
-import { View, Text } from "react-native";
+import { View, Text, Button, Pressable } from "react-native";
 import { styles } from "../styles.js";
 
 
-const Box = ({ children }) => {
-    return(
+const Box = ({ navigation, title }) => {
+    return (
         <View style={styles.gridBox}>
-            <Text style={styles.gridText}>{children}</Text>
+            <Button 
+                title={title}
+                onPress={() => {
+                    navigation.navigate(title);
+                }}
+                color="#BF40BF"
+                height="200px"
+                >
+
+            </Button>
         </View>
     )
 };
 
-Box.propTypes = {
-    children: PropTypes.node.isRequired,
-};
+// Box.propTypes = {
+//     children: PropTypes.node.isRequired,
+// };
 
 export default Box;

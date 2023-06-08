@@ -5,9 +5,13 @@ import Box from "../components/Box.jsx";
 
 
 //Create an array of grid boxes(images) to be used for navigation
-const boxes = new Array(20).fill(null).map((v, i) => i + 1);
+const boxes = [
+    "ToDoList",
+    "Map",
+    "Shop",
+    "Settings"];
 
-const Home = ({ }) => {
+const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
@@ -16,7 +20,7 @@ const Home = ({ }) => {
 
                 <View style={styles.gridContainer}>
                     {boxes.map((i) => (
-                        <Box key={i}> #{i} </Box>
+                        <Box style={styles.gridBox} title={i} navigation={navigation} key={i}></Box>
                     ))}
                 </View>
 
