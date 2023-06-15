@@ -2,7 +2,7 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 
 
 export const styles = StyleSheet.create({
-    container: {
+    homeContainer: {
         flex: 1,
         backgroundColor: '#000',
         alignItems: 'center',
@@ -12,9 +12,24 @@ export const styles = StyleSheet.create({
         //     android: { paddingTop: StatusBar.currentHeight },
         // })
     },
+    toDoListContainer: {
+        flex: 1,
+        backgroundColor: '#000',
+        alignItems: 'flex-start',
+        
+    },
+    raisedButtonContainer: {
+       
+        backgroundColor: '#000',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        alignSelf: 'stretch',
+        
+    },
     text: {
         fontWeight: 'normal',
         fontSize: 40,
+        color:'#fff',
     },
 
     gridText: {
@@ -46,5 +61,13 @@ export const styles = StyleSheet.create({
         backgroundColor: '#BF40BF',
         height: 200,
     },
+    raisedButton: {
+        width: 500,
+        height: 200, 
+        
+        
+                  
+        
+    }
 
 });

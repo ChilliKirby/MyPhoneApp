@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, View, Text, Button, StatusBar } from "react-native";
 import { styles } from "../styles.js";
-import Box from "../components/Box.jsx";
+import HomeScreenNavButton from "../components/HomeScreenNavButton.jsx";
 
 
 //Create an array of grid boxes(images) to be used for navigation
@@ -14,13 +14,13 @@ const boxes = [
 const Home = ({ navigation }) => {
 
     return (
-        <View style={styles.container}>
+        <View style={styles.homeContainer}>
            
             <ScrollView>
 
                 <View style={styles.gridContainer}>
                     {boxes.map((i) => (
-                        <Box style={styles.gridBox} title={i} navigation={navigation} key={i}></Box>
+                        <HomeScreenNavButton style={styles.gridBox} title={i} navigation={navigation} key={i}></HomeScreenNavButton>
                     ))}
                 </View>
 

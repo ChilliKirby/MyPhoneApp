@@ -4,7 +4,7 @@ import { styles } from "./styles.js";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Box from "./components/Box.jsx";
+import HomeScreenNavButton from "./components/HomeScreenNavButton.jsx";
 import Home from "./scenes/Home.jsx";
 import ToDoList from "./scenes/ToDoList.jsx";
 

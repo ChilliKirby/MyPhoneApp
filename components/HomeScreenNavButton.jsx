@@ -3,7 +3,7 @@ import { View, Text, Button, Pressable } from "react-native";
 import { styles } from "../styles.js";
 
 
-const Box = ({ navigation, title }) => {
+const HomeScreenNavButton = ({ navigation, title }) => {
     return (
         <View style={styles.gridBox}>
             <Button 
@@ -24,4 +24,4 @@ const Box = ({ navigation, title }) => {
 //     children: PropTypes.node.isRequired,
 // };
 
-export default Box;
+export default HomeScreenNavButton;
