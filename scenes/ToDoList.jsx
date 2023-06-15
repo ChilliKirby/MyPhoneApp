@@ -33,7 +33,7 @@ const ToDoList = ({ navigation }) => {
                     reverse
                     reverseColor='#FFF'
                     color='#BF40BF'
-                    
+                    onPress={() => navigation.navigate("ToDoListAddItem")}
                 >
 
                 </Icon>

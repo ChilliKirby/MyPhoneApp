@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreenNavButton from "./components/HomeScreenNavButton.jsx";
 import Home from "./scenes/Home.jsx";
 import ToDoList from "./scenes/ToDoList.jsx";
+import ToDoListAddItem from './scenes/ToDoListAddItem.jsx';
 
 
 const Stack = createNativeStackNavigator();
@@ -39,6 +40,18 @@ export default function App() {
             fontWeight: 'bold',
           },
         }} />
+
+        <Stack.Screen name="ToDoListAddItem" component={ToDoListAddItem} options={{
+          title: 'MyPhone- Add new item to List',
+          headerStyle: {
+            backgroundColor: '#BF40BF',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
