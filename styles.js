@@ -2,6 +2,10 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 
 
 export const styles = StyleSheet.create({
+    generalContainer:{
+        flex:1,
+        backgroundColor: '#000',
+    },
     homeContainer: {
         flex: 1,
         backgroundColor: '#000',
@@ -65,9 +69,35 @@ export const styles = StyleSheet.create({
         width: 500,
         height: 200, 
         
-        
-                  
+    },
+    textInput:{
+        height:40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+    multiTextInput:{
+        height:40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+    inputContainer:{
+        backgroundColor: '#fff',
+        height: '20%',
+        borderWidth: 5,
+        padding: 20,
+        borderRadius: 50,
+        marginBottom: 20,
+    },
+    multiInputContainer:{
+        backgroundColor: '#fff',
+        height: '50%',
+        borderWidth: 5,
+        padding: 20,
+        borderRadius: 50,
         
     }
+
 
 });

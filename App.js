@@ -6,8 +6,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreenNavButton from "./components/HomeScreenNavButton.jsx";
 import Home from "./scenes/Home.jsx";
-import ToDoList from "./scenes/ToDoList.jsx";
-import ToDoListAddItem from './scenes/ToDoListAddItem.jsx';
+import ToDoList from "./scenes/ToDoList/ToDoList.jsx";
+import ToDoListAddItem from './scenes/ToDoList/ToDoListAddItem.jsx';
 
 
 const Stack = createNativeStackNavigator();
@@ -51,7 +51,7 @@ export default function App() {
             fontWeight: 'bold',
           }
         }} />
-        
+
       </Stack.Navigator>
     </NavigationContainer>
   );
