@@ -2,8 +2,8 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 
 
 export const styles = StyleSheet.create({
-    generalContainer:{
-        flex:1,
+    generalContainer: {
+        flex: 1,
         backgroundColor: '#000',
     },
     homeContainer: {
@@ -20,20 +20,20 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#000',
         alignItems: 'flex-start',
-        
+
     },
     raisedButtonContainer: {
-       
+
         backgroundColor: '#000',
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
         alignSelf: 'stretch',
-        
+
     },
     text: {
         fontWeight: 'normal',
         fontSize: 40,
-        color:'#fff',
+        color: '#fff',
     },
 
     gridText: {
@@ -51,14 +51,14 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 100
-        
+
     },
     gridContainer: {
         backgroundColor: '#000',
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignContent: 'center'
-        
+
     },
 
     gridButton: {
@@ -67,22 +67,22 @@ export const styles = StyleSheet.create({
     },
     raisedButton: {
         width: 500,
-        height: 200, 
-        
+        height: 200,
+
     },
-    textInput:{
-        height:40,
+    textInput: {
+        height: 40,
         margin: 12,
         borderWidth: 1,
         padding: 10,
     },
-    multiTextInput:{
-        height:40,
+    multiTextInput: {
+
         margin: 12,
         borderWidth: 1,
         padding: 10,
     },
-    inputContainer:{
+    inputContainer: {
         backgroundColor: '#fff',
         height: '20%',
         borderWidth: 5,
@@ -90,13 +90,13 @@ export const styles = StyleSheet.create({
         borderRadius: 50,
         marginBottom: 20,
     },
-    multiInputContainer:{
+    multiInputContainer: {
         backgroundColor: '#fff',
-        height: '50%',
+
         borderWidth: 5,
         padding: 20,
         borderRadius: 50,
-        
+
     }
 
 
