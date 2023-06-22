@@ -46,6 +46,6 @@ function tasksReducer(tasks, action) {
 }
 
 const initialTasks = [
-  { id: 0, title: 'Philosopher’s Path', },
+ // { id: 0, title: 'Philosopher’s Path', },
   
 ];

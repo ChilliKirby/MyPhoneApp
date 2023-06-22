@@ -19,12 +19,12 @@ const ToDoList = ({ navigation }) => {
             <ScrollView
 
             >
-                {tasks.length && (
+                {(tasks.length > 0) && (
                     <View>
                         {tasks.map((task) => (
 
                             <Text style={styles.text}>
-                                val {task.id} and index {task.title}
+                                val {task.id} and index {tasks.length}
                             </Text>
                         ))}
                     </View>
