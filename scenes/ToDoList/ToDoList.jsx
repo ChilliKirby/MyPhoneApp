@@ -1,65 +1,62 @@
 import React, { useContext, useReducer } from "react";
-import { ScrollView, View, Text, Button, StatusBar } from "react-native";
+import { ScrollView, View, Text, Pressable } from "react-native";
 import { Icon } from '@rneui/themed';
 import { styles } from '../../styles.js';
-import  { TasksProvider, TasksContext} from "./ToDoListContext.js";
-import Listy from "./ass.jsx";
+import { TasksContext } from "./ToDoListContext.js";
 
 
-// const list = new Array(50);
 
-// const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 const list = new Array(50).fill(null).map((v, i) => ({
     key: i.toString(), value: `Item ${i}`
 }));
 
 const ToDoList = ({ navigation }) => {
-//const {tasks} = useContext(TasksContext);
+    const tasks = useContext(TasksContext);
 
     return (
-         <TasksProvider>
-            <View style={styles.toDoListContainer}>
-                {/* <ScrollView >
 
-                    {list.length && (
+        <View style={styles.toDoListContainer}>
+            <ScrollView
+
+            >
+                {tasks.length && (
                     <View>
-                        
-                        <ul>
-                        {list.map((i) => (
+                        {tasks.map((task) => (
+
                             <Text style={styles.text}>
-                                val {i.value} and index {i.key}
+                                val {task.id} and index {task.title}
                             </Text>
-                            // <li key={i.id}>
-                            //     {i.title}
-                            // </li>
                         ))}
-                        </ul>
                     </View>
-                    )}
-                </ScrollView> */}
-                <Listy></Listy>
+                )}
+                <View>
+                    <View style={styles.raisedButtonContainer}>
+                        <Pressable 
+                            onPress={() => navigation.navigate("ToDoListAddItem")}
+                            
+                        >
+                            <Icon
+                                style={styles.raisedButton}
+                                raised
+                                name='file-plus'
+                                type='feather'
+                                reverse
+                                reverseColor='#FFF'
+                                color='#BF40BF'
+                                
 
-                <View style={styles.raisedButtonContainer}>
-                    <Icon
-                        style={styles.raisedButton}
-                        raised
-                        name='file-plus'
-                        type='feather'
-                        reverse
-                        reverseColor='#FFF'
-                        color='#BF40BF'
-                        onPress={() => navigation.navigate("ToDoListAddItem")}
-                    >
+                            >
 
-                    </Icon>
+
+
+                            </Icon>
+                        </Pressable>
+                    </View>
                 </View>
-
-            </View>
-         </TasksProvider>
+            </ScrollView>
+        </View>
 
     )
-
-
 }
 
 export default ToDoList;

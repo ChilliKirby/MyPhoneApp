@@ -15,12 +15,11 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.homeContainer}>
-           
-            <ScrollView>
 
+            <ScrollView>
                 <View style={styles.gridContainer}>
                     {boxes.map((i) => (
-                        <HomeScreenNavButton style={styles.gridBox} title={i} navigation={navigation} key={i}></HomeScreenNavButton>
+                        <HomeScreenNavButton style={styles.gridButton} title={i} navigation={navigation} key={i}></HomeScreenNavButton>
                     ))}
                 </View>
 

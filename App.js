@@ -15,6 +15,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <TasksProvider>
     <NavigationContainer>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
 
@@ -55,6 +56,7 @@ export default function App() {
 
       </Stack.Navigator>
     </NavigationContainer>
+    </TasksProvider>
   );
 }
 

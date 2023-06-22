@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     toDoListContainer: {
         flex: 1,
         backgroundColor: '#000',
-        alignItems: 'flex-start',
+        alignItems: 'stretch',
 
     },
 
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     },
 
     //General
-    gridBox: {
+    gridButton: {
         backgroundColor: '#BF40BF',
         width: '40%',
         height: 210,
@@ -72,10 +72,7 @@ export const styles = StyleSheet.create({
 
     },
 
-    gridButton: {
-        backgroundColor: '#BF40BF',
-        height: 200,
-    },
+    
     raisedButton: {
         width: 500,
         height: 200,

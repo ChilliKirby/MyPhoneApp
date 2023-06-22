@@ -1,27 +1,24 @@
 import { PropTypes } from "prop-types";
-import { View, Text, Button, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { styles } from "../styles.js";
 
 
 const HomeScreenNavButton = ({ navigation, title }) => {
     return (
-        <View style={styles.gridBox}>
-            <Button 
-                title={title}
-                onPress={() => {
-                    navigation.navigate(title);
-                }}
-                color="#BF40BF"
-                height="200px"
-                >
-
-            </Button>
+        <View style={styles.gridButton}>
+            <Pressable
+                onPress={() => { navigation.navigate(title) }}
+            >
+                <Text style={styles.buttonText}>
+                    {title}
+                </Text>
+            </Pressable>
         </View>
     )
 };
 
-// Box.propTypes = {
-//     children: PropTypes.node.isRequired,
-// };
+HomeScreenNavButton.propTypes = {
+    title: PropTypes.node.isRequired,
+};
 
 export default HomeScreenNavButton;
