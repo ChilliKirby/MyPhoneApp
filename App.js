@@ -8,6 +8,7 @@ import HomeScreenNavButton from "./components/HomeScreenNavButton.jsx";
 import Home from "./scenes/Home.jsx";
 import ToDoList from "./scenes/ToDoList/ToDoList.jsx";
 import ToDoListAddItem from './scenes/ToDoList/ToDoListAddItem.jsx';
+import { TasksProvider } from './scenes/ToDoList/ToDoListContext.js';
 
 
 const Stack = createNativeStackNavigator();

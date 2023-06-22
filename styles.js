@@ -2,6 +2,7 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 
 
 export const styles = StyleSheet.create({
+    //Containers for scenes
     generalContainer: {
         flex: 1,
         backgroundColor: '#000',
@@ -22,6 +23,8 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
 
     },
+
+    //Containers for buttons
     raisedButtonContainer: {
 
         backgroundColor: '#000',
@@ -30,9 +33,16 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch',
 
     },
+
+    //Text
     text: {
         fontWeight: 'normal',
         fontSize: 40,
+        color: '#fff',
+    },
+    buttonText: {
+        fontWeight: 'normal',
+        fontSize: 30,
         color: '#fff',
     },
 
@@ -41,6 +51,7 @@ export const styles = StyleSheet.create({
         fontSize: 20,
     },
 
+    //General
     gridBox: {
         backgroundColor: '#BF40BF',
         width: '40%',
@@ -77,9 +88,9 @@ export const styles = StyleSheet.create({
         padding: 10,
     },
     multiTextInput: {
-
+        
         margin: 12,
-        borderWidth: 1,
+        borderWidth: 0,
         padding: 10,
     },
     inputContainer: {
@@ -92,12 +103,23 @@ export const styles = StyleSheet.create({
     },
     multiInputContainer: {
         backgroundColor: '#fff',
-
+        height: '40%',
         borderWidth: 5,
         padding: 20,
         borderRadius: 50,
 
-    }
+    },
 
+    buttonContainer: {
+        height: '10%',
+    },
+
+    generalButton:{
+        borderRadius: 30,
+        backgroundColor: '#BF40BF',
+        width:'20%',
+        justifyContent:'center',
+        alignItems:'center',
+    }
 
 });
