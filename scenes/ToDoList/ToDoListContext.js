@@ -1,16 +1,24 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useMemo } from 'react';
 
 export const TasksContext = createContext(null);
 export const TasksDispatchContext = createContext(null);
 
 export function TasksProvider({ children }) {
+
+
   const [tasks, dispatch] = useReducer(
     tasksReducer,
     initialTasks
   );
 
+  //cache tasks so they do not calculate on re-renders
+  const value = useMemo(
+    () => ({ ...tasks, tasksReducer}),
+        [tasks],
+  );
+
   return (
-    <TasksContext.Provider value={tasks}>
+    <TasksContext.Provider value={value}>
       <TasksDispatchContext.Provider value={dispatch}>
         {children}
       </TasksDispatchContext.Provider>
