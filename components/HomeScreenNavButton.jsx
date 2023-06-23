@@ -5,14 +5,19 @@ import { styles } from "../styles.js";
 
 const HomeScreenNavButton = ({ navigation, title }) => {
     return (
-        <View style={styles.gridButton}>
+        <View style={styles.gridButtonView}>
+            
             <Pressable
                 onPress={() => { navigation.navigate(title) }}
+                
             >
+                <View>
                 <Text style={styles.buttonText}>
                     {title}
                 </Text>
+                </View>
             </Pressable>
+            
         </View>
     )
 };

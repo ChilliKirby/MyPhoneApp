@@ -2,6 +2,7 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 
 
 export const styles = StyleSheet.create({
+/////////////////////////////////////////////////////////////////////////
     //Containers for scenes
     generalContainer: {
         flex: 1,
@@ -23,9 +24,9 @@ export const styles = StyleSheet.create({
         alignItems: 'stretch',
 
     },
-
-    //Containers for buttons
-    raisedButtonContainer: {
+///////////////////////////////////////////////////////////////////////////
+    //View containers for pressables
+    raisedButtonView: {
 
         backgroundColor: '#000',
         alignItems: 'flex-end',
@@ -33,7 +34,30 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch',
 
     },
+    gridButtonView: {
+        backgroundColor: '#BF40BF',
+        width: '40%',
+        height: 210,
+        margin: '5%',
+        
+        //alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 100
+        
+    },
 
+    generalButtonView:{
+        borderRadius: 30,
+        backgroundColor: '#BF40BF',
+        width: 88,
+        height: 36,
+         justifyContent:'center',
+        alignItems:'center',
+        elevation: 2,
+        padding: 2,
+    },
+/////////////////////////////////////////////////////////////////////////
     //Text
     text: {
         fontWeight: 'normal',
@@ -42,28 +66,19 @@ export const styles = StyleSheet.create({
     },
     buttonText: {
         fontWeight: 'normal',
-        fontSize: 30,
+        fontSize: 16,
         color: '#fff',
+        width: 'auto',
+        height: 'auto'
     },
 
     gridText: {
         fontWeight: 'bold',
         fontSize: 20,
     },
-
+/////////////////////////////////////////////////////////////////////////
     //General
-    gridButton: {
-        backgroundColor: '#BF40BF',
-        width: '40%',
-        height: 210,
-        margin: '5%',
-        padding: 10,
-        alignContent: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 100
-
-    },
+   
     gridContainer: {
         backgroundColor: '#000',
         flexDirection: 'row',
@@ -73,11 +88,11 @@ export const styles = StyleSheet.create({
     },
 
     
-    raisedButton: {
-        width: 500,
-        height: 200,
+    // raisedButton: {
+    //     width: 500,
+    //     height: 200,
 
-    },
+    // },
     textInput: {
         height: 40,
         margin: 12,
@@ -107,16 +122,10 @@ export const styles = StyleSheet.create({
 
     },
 
-    buttonContainer: {
-        height: '10%',
-    },
+    // buttonContainer: {
+    //     height: '10%',
+    // },
 
-    generalButton:{
-        borderRadius: 30,
-        backgroundColor: '#BF40BF',
-        width:'20%',
-        justifyContent:'center',
-        alignItems:'center',
-    }
+    
 
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, View, Text, Button, StatusBar } from "react-native";
+import { ScrollView, View, Text, Button, StatusBar, Pressable } from "react-native";
 import { styles } from "../styles.js";
 import HomeScreenNavButton from "../components/HomeScreenNavButton.jsx";
 
@@ -19,11 +19,12 @@ const Home = ({ navigation }) => {
             <ScrollView>
                 <View style={styles.gridContainer}>
                     {boxes.map((i) => (
-                        <HomeScreenNavButton style={styles.gridButton} title={i} navigation={navigation} key={i}></HomeScreenNavButton>
+                        <HomeScreenNavButton title={i} navigation={navigation} key={i}></HomeScreenNavButton>
                     ))}
                 </View>
 
             </ScrollView>
+            
         </View>
     );
 }

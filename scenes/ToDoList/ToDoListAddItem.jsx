@@ -24,7 +24,7 @@ const ToDoListAddItem = ({ navigation }) => {
                 />
             </View>
 
-            <View style={styles.multiInputContainer}>
+            <View  style={styles.multiInputContainer}>
                 <TextInput
                     editable
                     multiline={true}
@@ -45,14 +45,17 @@ const ToDoListAddItem = ({ navigation }) => {
                 >
                 <GeneralButton
                     onpress={addToList}
+                    title="add"
                 />
             </View>
         </View>
     )
 
     const addToList = () => {
+        console.log('ass');
         dispatch({
             
+
             title: taskTitle,
             task: taskDesc,
         })

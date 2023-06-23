@@ -30,7 +30,7 @@ const ToDoList = ({ navigation }) => {
                     </View>
                 )}
                 <View>
-                    <View style={styles.raisedButtonContainer}>
+                    <View style={styles.raisedButtonView}>
                         <Pressable 
                             onPress={() => navigation.navigate("ToDoListAddItem")}
                             
@@ -46,8 +46,6 @@ const ToDoList = ({ navigation }) => {
                                 
 
                             >
-
-
 
                             </Icon>
                         </Pressable>
