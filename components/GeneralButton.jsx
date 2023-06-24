@@ -1,14 +1,20 @@
 import { View, Button, Pressable, Text } from 'react-native';
 import { styles } from '../styles';
 
-const GeneralButton = ({ title, onpress }) => {
+const GeneralButton = ({ title, handleClick }) => {
     return (
 
         <View
             style={styles.generalButtonView}
         >
-            <Pressable>
-                <Text style={styles.buttonText}>
+            <Pressable
+                // onPress={() => handleClick()}
+                onPress={handleClick}
+            >
+                <Text 
+                    style={styles.buttonText}
+                    
+                >
                     {title}
                 </Text>
             </Pressable>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 import { styles } from '../../styles.js';
 import GeneralButton from '../../components/GeneralButton.jsx';
 import { TasksDispatchContext } from './ToDoListContext.js';
@@ -10,7 +10,16 @@ const ToDoListAddItem = ({ navigation }) => {
     const [taskTitle, onChangeTaskTitle] = React.useState("");
     const [taskDesc, onChangeTaskDesc] = React.useState("");
     const dispatch = useContext(TasksDispatchContext)
+    console.log("try");
 
+    const addToList = () => {
+        console.log('ass');
+        // dispatch({
+          
+        //     title: taskTitle,
+        //     task: taskDesc,
+        // })
+    }
 
     return (
         <View style={styles.generalContainer}>
@@ -44,23 +53,16 @@ const ToDoListAddItem = ({ navigation }) => {
                 
                 >
                 <GeneralButton
-                    onpress={addToList}
+                    handleClick={addToList}
                     title="add"
                 />
+                <Button  title="butt" onPress={addToList}></Button>
             </View>
         </View>
     )
 
-    const addToList = () => {
-        console.log('ass');
-        dispatch({
-            
-
-            title: taskTitle,
-            task: taskDesc,
-        })
-    }
-
 }
+
+
 
 export default ToDoListAddItem;
