@@ -2,13 +2,8 @@ import React, { useContext, useReducer } from "react";
 import { ScrollView, View, Text, Pressable } from "react-native";
 import { Icon } from '@rneui/themed';
 import { styles } from '../../styles.js';
-import { TasksContext } from "./ToDoListContext.js";
+import { TasksContext, useTasks } from "./ToDoListContext.js";
 
-
-
-const list = new Array(50).fill(null).map((v, i) => ({
-    key: i.toString(), value: `Item ${i}`
-}));
 
 const ToDoList = ({ navigation }) => {
     const tasks = useContext(TasksContext);
@@ -24,7 +19,7 @@ const ToDoList = ({ navigation }) => {
                         {tasks.map((task) => (
 
                             <Text style={styles.text}>
-                                val {task.id} and index {tasks.length}
+                                val {task.title} and index {task.text}
                             </Text>
                         ))}
                     </View>

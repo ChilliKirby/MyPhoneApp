@@ -10,15 +10,15 @@ const ToDoListAddItem = ({ navigation }) => {
     const [taskTitle, onChangeTaskTitle] = React.useState("");
     const [taskDesc, onChangeTaskDesc] = React.useState("");
     const dispatch = useContext(TasksDispatchContext)
-    console.log("try");
+    
 
     const addToList = () => {
         console.log('ass');
-        // dispatch({
-          
-        //     title: taskTitle,
-        //     task: taskDesc,
-        // })
+        dispatch({
+            type: "ADD_TO_LIST",
+            title: taskTitle,
+            task: taskDesc,
+        })
     }
 
     return (
