@@ -1,4 +1,6 @@
 import { createContext, useReducer, useMemo, useContext } from 'react';
+import { getData, storeData } from '../../utilities/AsyncStorage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const TasksContext = createContext(null);
 export const TasksDispatchContext = createContext(null);
@@ -29,15 +31,31 @@ export function TasksProvider({ children }) {
 
 function tasksReducer(tasks, action) {
     console.log("in dispatch");
+    
+    AsyncStorage.getAllKeys((err, keys) => {
+        AsyncStorage.multiGet(keys, (error, stores) => {
+          stores.map((result, i, store) => {
+            console.log({ [store[i][0]]: store[i][1] });
+            return true;
+          });
+        });
+      });
+
     switch (action.type) {
         case 'ADD_TO_LIST': {
             console.log("add to list");
-
+            console.log(action.title);
+            console.log("before copy");
+            // let copy = [...tasks];
+            // copy = [...tasks, {title: action.title, text: action.task}];
+            // console.log("after copy");
             return [...tasks, {
                 id: action.title,
                 text: action.task,
 
             }];
+            //storeData(copy);
+            //return copy;
         }
         case 'changed': {
             return tasks.map(t => {
@@ -57,10 +75,14 @@ function tasksReducer(tasks, action) {
     }
 }
 
-const initialTasks = [
-    { title: 'Philosopher’s Path', text: "ass" },
+// const initialTasks = [
+//     { title: 'Philosopher’s Path', text: "ass" },
+    
+// ];
 
-];
+const initialTasks = () => {
+    getData();
+}
 
 export function useTasks() {
     return useContext(TasksContext);

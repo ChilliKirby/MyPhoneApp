@@ -6,14 +6,22 @@ import { TasksContext, useTasks } from "./ToDoListContext.js";
 
 
 const ToDoList = ({ navigation }) => {
-    const tasks = useContext(TasksContext);
 
+
+    const tasks = useContext(TasksContext);
+    console.log(tasks[0]);
     return (
 
         <View style={styles.toDoListContainer}>
+            
             <ScrollView
 
             >
+             {/* <View>
+                    <Text style={styles.buttonText}>
+                         {tasks[1].title}
+                    </Text>
+                </View> */}
                 {(tasks.length > 0) && (
                     <View>
                         {tasks.map((task) => (
@@ -46,6 +54,8 @@ const ToDoList = ({ navigation }) => {
                         </Pressable>
                     </View>
                 </View>
+
+                
             </ScrollView>
         </View>
 
