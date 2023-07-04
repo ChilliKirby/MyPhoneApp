@@ -1,27 +1,43 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import { ScrollView, View, Text, Pressable } from "react-native";
 import { Icon } from '@rneui/themed';
 import { styles } from '../../styles.js';
-import { TasksContext, useTasks } from "./ToDoListContext.js";
-
+import { TasksContext, TasksDispatchContext, useTasks } from "./ToDoListContext.js";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getData } from "../../utilities/AsyncStorage.js";
 
 const ToDoList = ({ navigation }) => {
 
-
+    const dispatch = useContext(TasksDispatchContext);
     const tasks = useContext(TasksContext);
-    console.log(tasks[0]);
+
+    useEffect(() => {
+       load();     
+    }, []);
+
+    AsyncStorage.getAllKeys((err, keys) => {
+        AsyncStorage.multiGet(keys, (error, stores) => {
+            stores.map((result, i, store) => {
+                console.log({ [store[i][0]]: store[i][1] });
+                return true;
+            });
+        });
+    });
+
+    const load = async() =>{
+        let t = await getData();
+        console.log("iiii" + t[0].title);
+        console.log("before dispatch " + t[0]);
+        dispatch({ type: "do", tasks: t });
+    }
+
     return (
 
         <View style={styles.toDoListContainer}>
-            
+
             <ScrollView
 
             >
-             {/* <View>
-                    <Text style={styles.buttonText}>
-                         {tasks[1].title}
-                    </Text>
-                </View> */}
                 {(tasks.length > 0) && (
                     <View>
                         {tasks.map((task) => (
@@ -34,9 +50,9 @@ const ToDoList = ({ navigation }) => {
                 )}
                 <View>
                     <View style={styles.raisedButtonView}>
-                        <Pressable 
+                        <Pressable
                             onPress={() => navigation.navigate("ToDoListAddItem")}
-                            
+
                         >
                             <Icon
                                 style={styles.raisedButton}
@@ -46,7 +62,7 @@ const ToDoList = ({ navigation }) => {
                                 reverse
                                 reverseColor='#FFF'
                                 color='#BF40BF'
-                                
+
 
                             >
 
@@ -55,10 +71,9 @@ const ToDoList = ({ navigation }) => {
                     </View>
                 </View>
 
-                
+
             </ScrollView>
         </View>
-
     )
 }
 
