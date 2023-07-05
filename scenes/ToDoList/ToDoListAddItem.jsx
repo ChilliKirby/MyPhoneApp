@@ -22,6 +22,10 @@ const ToDoListAddItem = ({ navigation }) => {
         })
     }
 
+    const handleCancel = () => {
+        navigation.navigate("ToDoList");
+    }
+
     return (
         <View style={styles.generalContainer}>
             <View style={styles.inputContainer}>
@@ -57,7 +61,10 @@ const ToDoListAddItem = ({ navigation }) => {
                     handleClick={addToList}
                     title="add"
                 />
-                <Button  title="butt" onPress={addToList}></Button>
+                <GeneralButton  
+                title="cancel" 
+                handleClick={handleCancel}
+                />
             </View>
         </View>
     )
