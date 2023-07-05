@@ -7,13 +7,13 @@ export const TasksDispatchContext = createContext(null);
 
 export function TasksProvider({ children }) {
 
-   
-    const [tasks, dispatch] = useReducer(
+
+    const [state, dispatch] = useReducer(
         tasksReducer,
-        initialTasks
+        initialState
     );
 
-    
+
     //cache tasks so they do not calculate on re-renders
     //   const value = useMemo(
     //     () => ({ ...tasks, tasksReducer}),
@@ -22,7 +22,7 @@ export function TasksProvider({ children }) {
 
 
     return (
-        <TasksContext.Provider value={tasks}>
+        <TasksContext.Provider value={state}>
             <TasksDispatchContext.Provider value={dispatch}>
                 {children}
             </TasksDispatchContext.Provider>
@@ -30,47 +30,16 @@ export function TasksProvider({ children }) {
     );
 }
 
-function tasksReducer(tasks, action) {
-   
+function tasksReducer(state, action) {
+
 
     switch (action.type) {
         case 'ADD_TO_LIST': {
-            console.log("add to list");
-            console.log(action.title);
-            console.log("before copy");
-            // let copy = [...tasks];
-            // copy = [...tasks, {title: action.title, text: action.task}];
-            // console.log("after copy");
 
+            const copy = [...state, { title: action.title, text: action.task }];
+            storeData(copy);
 
-            // return [...tasks, {
-            //     id: action.title,
-            //     text: action.task,
-
-            // }];
-
-
-            //storeData(copy);
-            //return copy;
-
-
-
-            ////////////////////////////////////////////
-            // console.log(tasks[0].title);
-            // console.log(tasks[1].title);
-            storeData(tasks);
-            printAsyncStorage();
-            AsyncStorage.getAllKeys((err, keys) => {
-                AsyncStorage.multiGet(keys, (error, stores) => {
-                  stores.map((result, i, store) => {
-                    console.log({ [store[i][0]]: store[i][1] });
-                    return true;
-                  });
-                });
-              });
-            console.log("finished printing keys");
-            return tasks;
-
+            return copy;
         }
         case 'changed': {
             return tasks.map(t => {
@@ -84,11 +53,7 @@ function tasksReducer(tasks, action) {
         case 'deleted': {
             return tasks.filter(t => t.id !== action.id);
         }
-        case 'do': {
-            console.log("in do");
-            //let data =  getData();
-            console.log("testorama");
-            // console.log(action.tasks[0].title);
+        case 'LOAD_TASKS': {
             return action.tasks;
         }
         default: {
@@ -97,20 +62,9 @@ function tasksReducer(tasks, action) {
     }
 }
 
-// const initialTasks = [
-//     // { title: 'Philosopher’s Path', text: "ass" },
-//     // { title: 'Philosopher’s ass', text: "buttz" },
-
-// ];
-
-// const initialTasks = () => {
-//     console.log("calling data...")
-//     getData();
-// }
-
-    const initialTasks = {
-        
-   };
+const initialState = {
+    tasks: [],
+};
 
 export function useTasks() {
     return useContext(TasksContext);

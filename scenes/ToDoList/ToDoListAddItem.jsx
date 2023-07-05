@@ -14,7 +14,7 @@ const ToDoListAddItem = ({ navigation }) => {
     
 
     const addToList = () => {
-        console.log('ass');
+        
         dispatch({
             type: "ADD_TO_LIST",
             title: taskTitle,

@@ -18,7 +18,7 @@ const ToDoList = ({ navigation }) => {
     //get list of todo items from asyncstorage and then dispatch
     const load = async() =>{
         let t = await getData();
-        dispatch({ type: "do", tasks: t });
+        dispatch({ type: "LOAD_TASKS", tasks: t });
     }
 
     return (
