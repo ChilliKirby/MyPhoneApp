@@ -2,19 +2,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const storeData = async(value) => {
     try{
-        console.log("before stringify")
         const jsonValue = JSON.stringify(value);
-        console.log("before setItem");
         await AsyncStorage.setItem("todolist", jsonValue);
-        console.log("saved");
-
     } catch(e){
         //saving error
     }
 };
 
 export const getData = async() => {
-    console.log("getting data...");
     try{
         const jsonValue = await AsyncStorage.getItem("todolist");
        
