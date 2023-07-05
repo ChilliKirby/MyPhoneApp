@@ -15,19 +15,9 @@ const ToDoList = ({ navigation }) => {
        load();     
     }, []);
 
-    AsyncStorage.getAllKeys((err, keys) => {
-        AsyncStorage.multiGet(keys, (error, stores) => {
-            stores.map((result, i, store) => {
-                console.log({ [store[i][0]]: store[i][1] });
-                return true;
-            });
-        });
-    });
-
+    //get list of todo items from asyncstorage and then dispatch
     const load = async() =>{
         let t = await getData();
-        console.log("iiii" + t[0].title);
-        console.log("before dispatch " + t[0]);
         dispatch({ type: "do", tasks: t });
     }
 
@@ -42,7 +32,7 @@ const ToDoList = ({ navigation }) => {
                     <View>
                         {tasks.map((task) => (
 
-                            <Text style={styles.text}>
+                            <Text key={task.toString() + task.title.toString()+ task.text.toString()} style={styles.text}>
                                 val {task.title} and index {task.text}
                             </Text>
                         ))}
