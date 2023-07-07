@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, } from "react";
 import { ScrollView, View, Text, Pressable } from "react-native";
 import { Icon } from '@rneui/themed';
 import { styles } from '../../styles.js';
-import { TasksContext, TasksDispatchContext, useTasks } from "./ToDoListContext.js";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { TasksContext, TasksDispatchContext } from "./ToDoListContext.js";
+import ToDoItem from "./ToDoItem.jsx";
 import { getData } from "../../utilities/AsyncStorage.js";
 
 const ToDoList = ({ navigation }) => {
@@ -12,13 +13,13 @@ const ToDoList = ({ navigation }) => {
     const tasks = useContext(TasksContext);
 
     useEffect(() => {
-       load();     
+        load();
     }, []);
 
     //get list of todo items from asyncstorage and then dispatch
-    const load = async() =>{
-        let t = await getData();
-        dispatch({ type: "LOAD_TASKS", tasks: t });
+    const load = async () => {
+        let tasks = await getData();
+        dispatch({ type: "LOAD_TASKS", tasks: tasks });
     }
 
     return (
@@ -28,13 +29,19 @@ const ToDoList = ({ navigation }) => {
             <ScrollView
 
             >
+
                 {(tasks.length > 0) && (
                     <View>
                         {tasks.map((task) => (
-
-                            <Text key={task.toString() + task.title.toString()+ task.text.toString()} style={styles.text}>
-                                val {task.title} and index {task.text}
-                            </Text>
+                            <View
+                                borderTopColor="#fff"
+                                borderTopWidth={1}
+                                margin={15}
+                            >
+                                <Text key={task.toString() + task.title.toString()} style={styles.bigText}>
+                                    {task.title}
+                                </Text>
+                            </View>
                         ))}
                     </View>
                 )}

@@ -59,9 +59,14 @@ export const styles = StyleSheet.create({
     },
 /////////////////////////////////////////////////////////////////////////
     //Text
-    text: {
+    bigText: {
         fontWeight: 'normal',
         fontSize: 40,
+        color: '#fff',
+    },
+    regularText: {
+        fontWeight: 'normal',
+        fontSize: 16,
         color: '#fff',
     },
     buttonText: {

@@ -63,7 +63,9 @@ function tasksReducer(state, action) {
 }
 
 const initialState = {
+    //todo list
     tasks: [],
+
 };
 
 export function useTasks() {
