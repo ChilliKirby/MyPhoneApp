@@ -35,11 +35,14 @@ function tasksReducer(state, action) {
 
     switch (action.type) {
         case 'ADD_TO_LIST': {
-
-            const copy = [...state, { title: action.title, text: action.task }];
+           
+            const copy = [...state.tasks, { title: action.title, text: action.task }];
             storeData(copy);
 
-            return copy;
+            return {
+                ...state,
+                tasks: copy,
+            }
         }
         case 'changed': {
             return tasks.map(t => {
@@ -54,7 +57,14 @@ function tasksReducer(state, action) {
             return tasks.filter(t => t.id !== action.id);
         }
         case 'LOAD_TASKS': {
-            return action.tasks;
+            if (action.tasks != null) {
+                return {
+                    ...state,
+                    tasks: action.tasks,
+                };
+            } else{
+                return state;
+            }
         }
         default: {
             throw Error('Unknown action: ' + action.type);
@@ -65,6 +75,8 @@ function tasksReducer(state, action) {
 const initialState = {
     //todo list
     tasks: [],
+    title: "test",
+    task: "",
 
 };
 
