@@ -53,8 +53,8 @@ const ToDoListAddItem = ({ navigation }) => {
 
             <View 
                 style={styles.buttonContainer}
-                flexDirection='row'
-                justifyContent='space-around'
+                // flexDirection='row'
+                // justifyContent='space-around'
                 
                 >
                 <GeneralButton

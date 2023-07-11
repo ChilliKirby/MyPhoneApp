@@ -19,7 +19,7 @@ const ToDoList = ({ navigation }) => {
     //get list of todo items from asyncstorage and then dispatch
     const load = async () => {
         let t = await getData();
-       
+
         dispatch({ type: "LOAD_TASKS", tasks: t });
     }
 
@@ -32,21 +32,23 @@ const ToDoList = ({ navigation }) => {
             >
 
                 {(tasks.tasks != null) && (
-                    <View>
-                        {tasks.tasks.map((task) => (
-                            <View
-                                borderTopColor="#fff"
-                                borderTopWidth={1}
-                                margin={15}
-                                key={task.toString() + task.title.toString()}
-                            >
-                                <Text style={styles.bigText}>
-                                    {task.title}
-                                </Text>
-                            </View>
-                        ))}
+                    <Pressable
+                        onPress={() => navigation.navigate("ToDoItem")}
+                    >    
+                        <View>
+                            {tasks.tasks.map((task) => (
+                                <View
+                                    style={styles.toDoListView}
+                                    key={task.toString() + task.title.toString()}
+                                >
+                                    <Text style={styles.bigText}>
+                                        {task.title}
+                                    </Text>
+                                </View>
+                            ))}
 
-                    </View>
+                        </View>
+                    </Pressable>
                 )}
                 <View>
                     <View style={styles.raisedButtonView}>

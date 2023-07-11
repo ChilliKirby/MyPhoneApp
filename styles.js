@@ -56,6 +56,14 @@ export const styles = StyleSheet.create({
         alignItems:'center',
         elevation: 2,
         padding: 2,
+        flex: 1,
+        margin: 10,
+    },
+
+    toDoListView: {
+        borderTopColor: "#fff",
+        borderTopWidth: 1,
+        margin: 15,
     },
 /////////////////////////////////////////////////////////////////////////
     //Text
@@ -127,9 +135,12 @@ export const styles = StyleSheet.create({
 
     },
 
-    // buttonContainer: {
-    //     height: '10%',
-    // },
+    buttonContainer: {
+        height: '10%',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        flexGrow: .5,
+    },
 
     
 
