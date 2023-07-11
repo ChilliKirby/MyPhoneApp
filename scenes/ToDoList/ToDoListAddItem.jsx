@@ -15,14 +15,24 @@ const ToDoListAddItem = ({ navigation }) => {
 
 
     const addToList = () => {
-        const exists = tasks.tasks.some((value) => value.title === taskTitle);
+        const sanitizedTitle = taskTitle.trim();
+        const sanitizedDesc = taskDesc.trim();
+
+        console.log(taskTitle);
+        console.log(taskDesc);
+
+        console.log(sanitizedTitle);
+        console.log(sanitizedDesc);
+        
+
+        const exists = tasks.tasks.some((value) => value.title === sanitizedTitle);
 
         if (!exists) {
             dispatch({
                 type: "ADD_TO_LIST",
 
-                title: taskTitle,
-                task: taskDesc,
+                title: sanitizedTitle,
+                task: sanitizedDesc,
             })
         } else {
             //modal something////////////////////////////////////////////////
