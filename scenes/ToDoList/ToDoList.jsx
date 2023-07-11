@@ -14,6 +14,7 @@ const ToDoList = ({ navigation }) => {
 
     useEffect(() => {
         load();
+        
     }, []);
 
     //get list of todo items from asyncstorage and then dispatch
@@ -21,6 +22,7 @@ const ToDoList = ({ navigation }) => {
         let t = await getData();
 
         dispatch({ type: "LOAD_TASKS", tasks: t });
+        
     }
 
     return (
@@ -32,28 +34,40 @@ const ToDoList = ({ navigation }) => {
             >
 
                 {(tasks.tasks != null) && (
-                    <Pressable
-                        onPress={() => navigation.navigate("ToDoItem")}
-                    >    
-                        <View>
-                            {tasks.tasks.map((task) => (
+
+                    <View>
+                        {tasks.tasks.map((task) => (
+                            <Pressable
+                                key={task.toString() + task.title.toString()}
+                                onPress={() => {
+                                    dispatch({
+                                        type: "DISPLAY_LIST_ITEM",
+                                        title: task.title,
+                                        task: task.task,
+                                    });
+                                    navigation.navigate("ToDoItem")
+                                }}
+                            >
                                 <View
                                     style={styles.toDoListView}
-                                    key={task.toString() + task.title.toString()}
+                                // key={task.toString() + task.title.toString()}
                                 >
                                     <Text style={styles.bigText}>
                                         {task.title}
                                     </Text>
                                 </View>
-                            ))}
+                            </Pressable>
+                        ))}
 
-                        </View>
-                    </Pressable>
+                    </View>
+
                 )}
                 <View>
                     <View style={styles.raisedButtonView}>
                         <Pressable
-                            onPress={() => navigation.navigate("ToDoListAddItem")}
+                            onPress={() => {
+                                navigation.navigate("ToDoListAddItem")
+                            }}
 
                         >
                             <Icon

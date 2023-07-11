@@ -35,28 +35,25 @@ function tasksReducer(state, action) {
 
     switch (action.type) {
         case 'ADD_TO_LIST': {
-           
-            const copy = [...state.tasks, { title: action.title, text: action.task }];
+            const copy = [...state.tasks, { title: action.title, task: action.task }];
             storeData(copy);
-
             return {
                 ...state,
                 tasks: copy,
             }
         }
-        case 'changed': {
-            return tasks.map(t => {
-                if (t.id === action.task.id) {
-                    return action.task;
-                } else {
-                    return t;
-                }
-            });
+        case 'DISPLAY_LIST_ITEM': {
+            return {
+                ...state,
+                title: action.title,
+                task: action.task,
+            }
         }
         case 'deleted': {
             return tasks.filter(t => t.id !== action.id);
         }
         case 'LOAD_TASKS': {
+            
             if (action.tasks != null) {
                 return {
                     ...state,
