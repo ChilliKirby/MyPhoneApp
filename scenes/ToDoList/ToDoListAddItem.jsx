@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { styles } from '../../styles.js';
 import GeneralButton from '../../components/GeneralButton.jsx';
-import { TasksDispatchContext } from './ToDoListContext.js';
+import { TasksContext, TasksDispatchContext } from './ToDoListContext.js';
 import { getData, storeData, c } from '../../utilities/AsyncStorage.js';
 
 
@@ -11,15 +11,23 @@ const ToDoListAddItem = ({ navigation }) => {
     const [taskTitle, onChangeTaskTitle] = React.useState("");
     const [taskDesc, onChangeTaskDesc] = React.useState("");
     const dispatch = useContext(TasksDispatchContext)
-    
+    const tasks = useContext(TasksContext);
+
 
     const addToList = () => {
-        
-        dispatch({
-            type: "ADD_TO_LIST",
-            title: taskTitle,
-            task: taskDesc,
-        })
+        const exists = tasks.tasks.some((value) => value.title === taskTitle);
+
+        if (!exists) {
+            dispatch({
+                type: "ADD_TO_LIST",
+
+                title: taskTitle,
+                task: taskDesc,
+            })
+        } else {
+            //modal something////////////////////////////////////////////////
+            console.log("duplicate title");
+        }
     }
 
     const handleCancel = () => {
@@ -28,6 +36,7 @@ const ToDoListAddItem = ({ navigation }) => {
 
     return (
         <View style={styles.generalContainer}>
+
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.textInput}
@@ -38,7 +47,7 @@ const ToDoListAddItem = ({ navigation }) => {
                 />
             </View>
 
-            <View  style={styles.multiInputContainer}>
+            <View style={styles.multiInputContainer}>
                 <TextInput
                     editable
                     multiline={true}
@@ -51,19 +60,19 @@ const ToDoListAddItem = ({ navigation }) => {
                 />
             </View>
 
-            <View 
+            <View
                 style={styles.buttonContainer}
-                // flexDirection='row'
-                // justifyContent='space-around'
-                
-                >
+            // flexDirection='row'
+            // justifyContent='space-around'
+
+            >
                 <GeneralButton
                     handleClick={addToList}
                     title="add"
                 />
-                <GeneralButton  
-                title="cancel" 
-                handleClick={handleCancel}
+                <GeneralButton
+                    title="cancel"
+                    handleClick={handleCancel}
                 />
             </View>
         </View>

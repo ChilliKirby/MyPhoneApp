@@ -35,6 +35,7 @@ function tasksReducer(state, action) {
 
     switch (action.type) {
         case 'ADD_TO_LIST': {
+            
             const copy = [...state.tasks, { title: action.title, task: action.task }];
             storeData(copy);
             return {
