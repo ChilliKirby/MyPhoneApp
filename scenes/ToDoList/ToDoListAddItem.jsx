@@ -18,12 +18,6 @@ const ToDoListAddItem = ({ navigation }) => {
         const sanitizedTitle = taskTitle.trim();
         const sanitizedDesc = taskDesc.trim();
 
-        console.log(taskTitle);
-        console.log(taskDesc);
-
-        console.log(sanitizedTitle);
-        console.log(sanitizedDesc);
-        
 
         const exists = tasks.tasks.some((value) => value.title === sanitizedTitle);
 

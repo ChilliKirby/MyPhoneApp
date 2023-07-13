@@ -11,14 +11,13 @@ const ToDoItem = ({ navigation }) => {
     const tasks = useContext(TasksContext);
 
     const handleDelete = () => {
-        // dispatch({
-        //     type: "DELETE_LIST_ITEM",
-            
-        // })
-        c();
-        console.log(tasks.title);
-        console.log(tasks.task);
-        console.log("ass");
+
+        //const copyArr = tasks.tasks.filter(task => task.title !== tasks.title);
+
+        dispatch({
+            type: "DELETE_LIST_ITEM",
+            title: tasks.title,
+        })
     }
     return (
         <View style={styles.generalContainer}
