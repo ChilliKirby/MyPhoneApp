@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { styles } from '../../styles.js';
 import GeneralButton from '../../components/GeneralButton.jsx';
 import { TasksContext, TasksDispatchContext } from './ToDoListContext.js';
@@ -13,25 +13,43 @@ const ToDoListAddItem = ({ navigation }) => {
     const dispatch = useContext(TasksDispatchContext)
     const tasks = useContext(TasksContext);
 
+    //Shows message to user when too many (50) list items exist.
+    const largeListWarning = () => {
+        Alert.alert("List", "Too many list items. Please delete old items before adding new items",
+            [
+                {
+                    text: "OK",
+                    onPress: () => { },
+                }
+            ])
+    }
 
     const addToList = () => {
-        const sanitizedTitle = taskTitle.trim();
-        const sanitizedDesc = taskDesc.trim();
+
+        if (tasks.tasks.length >= 3) {
+            console.log("ass");
+            largeListWarning();
+        }
+        else {
+            //These will handle white space
+            const sanitizedTitle = taskTitle.trim();
+            const sanitizedDesc = taskDesc.trim();
+            const exists = tasks.tasks.some((value) => value.title === sanitizedTitle);
+
+            if (!exists) {
 
 
-        const exists = tasks.tasks.some((value) => value.title === sanitizedTitle);
+                dispatch({
+                    type: "ADD_TO_LIST",
 
-        if (!exists) {
-            dispatch({
-                type: "ADD_TO_LIST",
-
-                title: sanitizedTitle,
-                task: sanitizedDesc,
-            })
-            navigation.navigate("ToDoList");
-        } else {
-            //modal something////////////////////////////////////////////////
-            console.log("duplicate title");
+                    title: sanitizedTitle,
+                    task: sanitizedDesc,
+                })
+                navigation.navigate("ToDoList");
+            } else {
+                //modal something////////////////////////////////////////////////
+                console.log("duplicate title");
+            }
         }
     }
 

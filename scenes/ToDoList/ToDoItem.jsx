@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, Text, View, TextInput } from 'react-native'
+import { Pressable, ScrollView, Text, View, TextInput, Alert } from 'react-native'
 import { styles } from '../../styles';
 import GeneralButton from "../../components/GeneralButton.jsx"
 import { TasksContext, TasksDispatchContext } from "./ToDoListContext.js";
@@ -14,8 +14,21 @@ const ToDoItem = ({ navigation }) => {
     const [edit, setEdit] = useState(false);
     const [taskDesc, onChangeTaskDesc] = useState(tasks.task);
 
+    //Shows user modal to confirm deletion of item
+    const deleteConfirmationAlert = () => {
+        Alert.alert("Delete", "Remove this item from list?", [
+            {
+                text: "OK",
+                onPress: handleDelete,
+            },
+            {
+                text: "CANCEL",
+                onPress: () => { },
+            }
+        ])
+    }
 
-
+    //Handles deletion of current item on to do list
     const handleDelete = () => {
 
         dispatch({
@@ -24,6 +37,7 @@ const ToDoItem = ({ navigation }) => {
         })
 
         navigation.navigate("ToDoList");
+
     }
 
 
@@ -49,11 +63,11 @@ const ToDoItem = ({ navigation }) => {
                     <Pressable
                         onPress={() => setEdit(true)}
                     >
-                    <View style={styles.textContainer}>
-                        <Text style={styles.regularText}>
-                            {tasks.task}
-                        </Text>
-                    </View>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.regularText}>
+                                {tasks.task}
+                            </Text>
+                        </View>
                     </Pressable>
                 )}
 
@@ -74,9 +88,10 @@ const ToDoItem = ({ navigation }) => {
                 )}
 
                 <View style={styles.buttonContainer}>
-                    <GeneralButton title="Delete List Item" handleClick={handleDelete
-
-                    } />
+                    <GeneralButton
+                        title="Delete List Item"
+                        handleClick={deleteConfirmationAlert}
+                    />
                 </View>
             </ScrollView>
 
