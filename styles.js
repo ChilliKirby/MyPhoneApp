@@ -98,25 +98,13 @@ export const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignContent: 'center'
 
-    },
-
-    
-    // raisedButton: {
-    //     width: 500,
-    //     height: 200,
-
-    // },
-    textInput: {
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-    },
-    multiTextInput: {
-        
-        margin: 12,
-        borderWidth: 0,
-        padding: 10,
+    },    
+    textContainer: {
+        height: 'auto',
+        borderWidth: 5,
+        padding: 20,
+        borderRadius: 50,
+        marginBottom: 20,
     },
     inputContainer: {
         backgroundColor: '#fff',
@@ -132,9 +120,8 @@ export const styles = StyleSheet.create({
         borderWidth: 5,
         padding: 20,
         borderRadius: 50,
-
+        marginVertical: 40
     },
-
     buttonContainer: {
         height: '10%',
         flexDirection: 'row',

@@ -28,6 +28,7 @@ const ToDoListAddItem = ({ navigation }) => {
                 title: sanitizedTitle,
                 task: sanitizedDesc,
             })
+            navigation.navigate("ToDoList");
         } else {
             //modal something////////////////////////////////////////////////
             console.log("duplicate title");
