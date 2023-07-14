@@ -14,8 +14,20 @@ const ToDoListAddItem = ({ navigation }) => {
     const tasks = useContext(TasksContext);
 
     //Shows message to user when too many (50) list items exist.
-    const largeListWarning = () => {
+    const largeListAlert = () => {
         Alert.alert("List", "Too many list items. Please delete old items before adding new items",
+            [
+                {
+                    text: "OK",
+                    onPress: () => { },
+                }
+            ])
+    }
+
+    //Show message when creating a new item with a duplicate
+    //title in the list.
+    const duplicateAlert = () => {
+        Alert.alert("List", "Duplicate list titles are not allowed.",
             [
                 {
                     text: "OK",
@@ -27,7 +39,7 @@ const ToDoListAddItem = ({ navigation }) => {
     const addToList = () => {
 
         if (tasks.tasks.length >= 50) {
-            largeListWarning();
+            largeListAlert();
         }
         else {
             //These will handle white space
@@ -46,8 +58,7 @@ const ToDoListAddItem = ({ navigation }) => {
                 })
                 navigation.navigate("ToDoList");
             } else {
-                //modal something////////////////////////////////////////////////
-                console.log("duplicate title");
+                duplicateAlert();
             }
         }
     }
@@ -84,9 +95,6 @@ const ToDoListAddItem = ({ navigation }) => {
 
             <View
                 style={styles.buttonContainer}
-            // flexDirection='row'
-            // justifyContent='space-around'
-
             >
                 <GeneralButton
                     handleClick={addToList}
