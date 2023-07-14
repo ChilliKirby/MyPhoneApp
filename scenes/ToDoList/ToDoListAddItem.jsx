@@ -26,8 +26,7 @@ const ToDoListAddItem = ({ navigation }) => {
 
     const addToList = () => {
 
-        if (tasks.tasks.length >= 3) {
-            console.log("ass");
+        if (tasks.tasks.length >= 50) {
             largeListWarning();
         }
         else {
