@@ -24,6 +24,12 @@ export const styles = StyleSheet.create({
         alignItems: 'stretch',
 
     },
+    mapContainer: {
+        flex: 1,
+        //backgroundColor: '#000',
+        width: '100%',
+        height: '100%',
+    },
 ///////////////////////////////////////////////////////////////////////////
     //View containers for pressables
     raisedButtonView: {

@@ -12,6 +12,9 @@ import ToDoList from "./scenes/ToDoList/ToDoList.jsx";
 import ToDoListAddItem from './scenes/ToDoList/ToDoListAddItem.jsx';
 import ToDoItem from './scenes/ToDoList/ToDoItem.jsx';
 
+//Map scenes
+import Map from "./scenes/Map/Map.jsx";
+
 
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +38,7 @@ export default function App() {
             },
           }} />
 
+          {/* ToDo list screens//////////////////////////////////////////// */}
           <Stack.Screen name="ToDoList" component={ToDoList} options={{
             title: 'MyPhone- To do list',
             headerStyle: {
@@ -62,6 +66,19 @@ export default function App() {
             title: 'MyPhone- To do...',
             headerStyle: {
               backgroundColor: '#BF40BF',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          />
+
+          {/* ToDo list screens//////////////////////////////////////////// */}
+          <Stack.Screen name="Map" component={Map} options={{
+            title: "MyPhone - Map",
+            headerStyle: {
+              backgroundColor: '#BF$)BF',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
